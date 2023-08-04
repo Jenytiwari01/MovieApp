@@ -1,0 +1,241 @@
+body {
+  background: #1c1d23;
+  overflow-x: hidden;
+}
+i {
+  pointer-events: none;
+}
+
+.active {
+  color: #00a1ed !important;
+}
+.loader {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #1c1d23;
+  z-index: 20;
+  img {
+    position: absolute;
+    left: 50%;
+    margin-left: -50px;
+    top: 50%;
+    margin-top: -50px;
+  }
+}
+.custom-scrollbar {
+  &::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    &-track {
+      background: #262626;
+    }
+    &-thumb {
+      background: darken(#95929d, 30%);
+      border-radius: 2rem;
+      &:hover {
+        cursor: pointer !important;
+        background: lighten(#262626, 20%);
+      }
+    }
+  }
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: -0.5%;
+  width: 100vw;
+  height: 100vh;
+  z-index: 15;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(5px);
+}
+section {
+  .card {
+    user-select: none;
+    width: 14rem;
+    &-container {
+      overflow-x: auto;
+      margin-bottom: 3rem;
+    }
+    &-wrapper {
+      border-radius: 1rem;
+    }
+    &-img-top {
+      width: 100%;
+      height: 335px;
+      object-fit: cover;
+    }
+    img {
+      border-radius: 1rem;
+      transition: all 1s;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+  &.navbar {
+    background: #1c1d23;
+    z-index: 15;
+    .logo {
+      &-img {
+        width: 50px;
+      }
+    }
+    .navigations {
+      a {
+        color: #6c757d;
+      }
+    }
+    .input-wrapper {
+      @media (min-width: 992px) {
+        width: 25%;
+      }
+      .has-search {
+        .form-control {
+          border: #323339;
+          padding: 0.65rem;
+          padding-left: 2.375rem !important;
+          background: #323339;
+          color: #95929d;
+          border-radius: 2rem;
+          &:focus {
+            outline: none;
+            box-shadow: none;
+          }
+          &-feedback {
+            position: absolute;
+            z-index: 2;
+            display: block;
+            width: 2.375rem;
+            height: 2.375rem;
+            line-height: 2.875rem;
+            pointer-events: none;
+            color: #555459;
+          }
+        }
+      }
+    }
+  }
+  &.movie-details-view {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    padding-top: 7.5rem;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    z-index: 20;
+    overflow-y: auto;
+    overflow-x: hidden;
+    .get-back-btn {
+      position: absolute;
+      top: 5%;
+      z-index: 10;
+    }
+    .movie-info {
+      .card {
+        width: 19rem;
+        &-container {
+          overflow-x: hidden;
+          margin-bottom: 0 !important;
+        }
+        &-img-top {
+          pointer-events: none;
+          width: 17rem;
+          height: 425px;
+          border-radius: 0.25rem;
+        }
+      }
+    }
+    .genre {
+      &-item {
+        color: #95929d;
+        background: #262626;
+        border-radius: 1.2rem;
+        &:first-child {
+          margin-left: 0 !important;
+        }
+        &:last-child {
+          margin-right: 0 !important;
+        }
+      }
+    }
+    .movie {
+      &-title {
+        .title-status {
+          line-height: 0.5;
+          h3 {
+            color: lighten(#828282, 45%);
+            letter-spacing: 0.7px;
+            word-wrap: break-word;
+          }
+        }
+        .contents {
+          width: 70vw;
+          .ratings {
+            i {
+              font-size: 1.05rem;
+            }
+          }
+        }
+      }
+      &-overview {
+        textarea {
+          width: 70vw;
+          overflow-x: hidden;
+          overflow-y: auto;
+          color: #828282;
+          line-height: 1.7;
+          font-size: 1.1rem;
+          resize: none;
+          &:focus {
+            outline: none;
+            box-shadow: none;
+          }
+        }
+      }
+    }
+  }
+  .trailer-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 16;
+    div {
+      &.trailer {
+        &-view {
+          position: relative;
+          width: 65vw;
+          padding-bottom: 56.25%;
+          height: 0px;
+          @media (max-width: 576px) {
+            width: 84vw;
+          }
+          @media (min-width: 576px) and (max-width: 768px) {
+            width: 80vw;
+          }
+          iframe {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+          }
+        }
+        &-exit {
+          position: absolute;
+          top: -2%;
+          right: -5%;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
